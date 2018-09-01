@@ -46,6 +46,6 @@ class GetZipCode
 
 }
 
-$get = new GetZipCode(68020050, 68020055);
-// $get = new GetZipCode;
+// $get = new GetZipCode(68020050, 68020055);
+$get = new GetZipCode;
 $get->get();
