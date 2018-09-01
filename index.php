@@ -1,51 +1,25 @@
 <?php
 
-class GetZipCode
-{
-    protected $initialZipCode;
-    protected $finalZipCode;
+require_once('vendor/autoload.php');
 
-    public function __construct(
-        $initialZipCode = 68000000,
-        $finalZipCode = 68999999
-    )
-    {
-        $this->initialZipCode = $initialZipCode;
-        $this->finalZipCode = $finalZipCode;
-    }
+use GetZipCode\WriteFile\WriteFile;
+use GetZipCode\GetAddress\GetAddress;
+use GetZipCode\Console\Console;
 
-    public function get()
-    {
+// $log = New WriteFile;
+// $log->line('conteudo em uma linha');
+// $log->line('conteudo em uma nova linha');
+// $log->print();
 
-        $hourInital = date('d/m/Y H:i:s');
-        $file = "log.txt";
-        $log = fopen($file, "a+");
-        print $hourInital . PHP_EOL;
-        fwrite($log, $hourInital."\n");
-        $countSave = 0;
-        foreach (range($this->initialZipCode, $this->finalZipCode) as $number) {
-            $url = "https://viacep.com.br/ws/{$number}/json/";
-            $getJson = json_decode(file_get_contents($url));
-            print "CEP: {$number} ";
-            if(@$getJson->erro){
-                print "cep não encontrado". PHP_EOL;
-            }else{
-                if($getJson->localidade == "Santarém")
-                fwrite($log, "{$number}, encontrado; \n");
-                print "cadastrando cep" . PHP_EOL;
-                $countSave++;
-            }
-        }
-        $hourFinal = date('d/m/Y H:i:s');
-        print $hourFinal . PHP_EOL;
-        fwrite($log, $hourFinal."\n");
-        print "Total de {$countSave} ceps cadastrados" . PHP_EOL;
-        fwrite($log, "Total de {$countSave} ceps encontrados \n");
-        fclose($log);
-    }
+// $get = new GetAddress;
+// $get->getUrl('https://viacep.com.br/ws/');
+// $get->getParams('68020060');
+// $get->getType();
+// $get->get();
 
-}
-
-// $get = new GetZipCode(68020050, 68020055);
-$get = new GetZipCode;
-$get->get();
+// $console = new Console;
+// $console->line(date('d/m/Y H:i:s-'));
+//     foreach (range(0, 10) as $number) {
+//         $console->line($number);
+//     }
+// $console->line(date('d/m/Y H:i:s'));
