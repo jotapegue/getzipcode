@@ -31,7 +31,7 @@ class GetZipCode
                 print "cep não encontrado". PHP_EOL;
             }else{
                 if($getJson->localidade == "Santarém")
-                fwrite($log, "CEP: {$number} encontrado \n");
+                fwrite($log, "{$number}, encontrado; \n");
                 print "cadastrando cep" . PHP_EOL;
                 $countSave++;
             }
