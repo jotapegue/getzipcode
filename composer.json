@@ -1,0 +1,19 @@
+{
+    "name": "jotapegue/gitzipcode",
+    "description": "script para pegar os cep's dentro de um range especificado",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "João Pedro Garcia",
+            "email": "pedro.garcia09@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "GetZipCode\\": "src"
+        }
+    },
+    "require": {}
+}
