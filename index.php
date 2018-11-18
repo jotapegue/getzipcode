@@ -23,3 +23,7 @@ use GetZipCode\Console\Console;
 //         $console->line($number);
 //     }
 // $console->line(date('d/m/Y H:i:s'));
+
+use GetZipCode\GetZipCode\GetZipCode;
+
+new GetZipCode;
